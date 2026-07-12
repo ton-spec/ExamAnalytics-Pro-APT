@@ -1,0 +1,16 @@
+Package: examanalyticspro
+Version: 1.0.0
+Architecture: amd64
+Maintainer: Tonny Mulati Digital Solutions <examanalyticsadmin@gmail.com>
+Priority: optional
+Section: education
+Filename: pool/main/e/examanalyticspro/examanalyticspro_1.0.0_amd64.deb
+Size: 107331514
+SHA256: f8a44dc75513bfc39cf1c03760c977a5eb33558768824f197e3e788c44ce25c9
+SHA1: 5a0674359741400d5f14eef982873d102d030c6c
+MD5sum: e13390a9d07e20ad1336ef1c3aa09077
+Description: ExamAnalytics Pro - CBC Exam Analysis & Reporting
+ A comprehensive exam analysis and reporting system for CBC schools.
+ Generates individual student report cards with charts, class analytics,
+ and supports hardware-locked licensing.
+
