@@ -1,21 +1,28 @@
-Date: Fri, 17 Jul 2026 14:46:56 +0000
+Architectures: amd64
+Codename: stable
+Components: main
+Date: Fri, 17 Jul 2026 18:08:31 +0000
+Description: ExamAnalytics Pro APT Repository
+Label: ExamAnalytics Pro
+Origin: Tonny Mulati Digital Solutions
+Suite: stable
 MD5Sum:
- 9dd79a30a207098470c9245d421ce5e9               38 Release
- c883a3625acf4264563a541878d8e224              669 main/binary-amd64/Packages
- b87bd8a88faec7aa3b986cebf00747c1              468 main/binary-amd64/Packages.gz
+ c98735ba8ab49c0999212b560dc6c710              217 Release
+ a2695b4fd58c03f0822ad34e3847351c              713 main/binary-amd64/Packages
+ 69c5a577d74127084cc955b7ec5a7480              501 main/binary-amd64/Packages.gz
  1ecc4b7e4bd94a9ea0637def1ed01972              162 main/binary-amd64/Release
 SHA1:
- 826f146c11493f4c09420396eecb9aa4e1992933               38 Release
- 5a2ecf13ef5424cd3b2a928f89e8c7b20dbdd9fc              669 main/binary-amd64/Packages
- 36f8d6ce60faa92bdb9ed213fa1c3e1ad3516bbd              468 main/binary-amd64/Packages.gz
+ 8c77c3dab2e6ee9cd937910b6940197fdba2e078              217 Release
+ 8e0a08de209c2a70d8b9524c55c3b164be8cc066              713 main/binary-amd64/Packages
+ d73c6c03e810f06a03c03f9e3db99900dd590579              501 main/binary-amd64/Packages.gz
  555cc2857eda09992efddfd18593617729ab4798              162 main/binary-amd64/Release
 SHA256:
- edcd4fc1b423d81ff1f390d3b2ed423d7b00bbad2f0a4d240fafdd67333ee0d1               38 Release
- 942798da4b8ce2f17f64f67c978293bf08ce420f0dc3fa428d644fbbd00b3dde              669 main/binary-amd64/Packages
- 940da7634c73957832ed194ba60a623605f59d588194dad94516bd1d56bc0f5f              468 main/binary-amd64/Packages.gz
+ 82828028469a7e83570d05e1f4d99718d16425e61b5a56ffbdbb75923ee682f5              217 Release
+ d357c3c96079ac1bed8df596655afbfd685b256f6128f735407228155b043dd3              713 main/binary-amd64/Packages
+ 041d6ce10ddf4b9d3c73e63d4db5da58f396549594283bb32883d0540e7ff391              501 main/binary-amd64/Packages.gz
  abd6328554cac1c844eb311f5c64c009c726f7bb5aac501c39dd747ec77a371d              162 main/binary-amd64/Release
 SHA512:
- 7b55acb8b78ce9c61c1f95576e57b8cb5e5ce11156870ed198be247fe5685219b03627ff613ae987e0928ade4223368afa7431db05615cef05898810e1e756ab               38 Release
- e270790b50ca8093c8ec798fe9daa7d597b9b10319f0ce1c565c3288c843aff71e36da626b98b8e5c4d5c35ae3baed64d5c474988df33aa66c21511cb5ca5ff4              669 main/binary-amd64/Packages
- 0ffb91c460146c739dd9a850c5ab951fead567816164124ce24f5989326f8822f2dc0e478b8014a8b1ee38649a0f3ae3434bf9005ae9e6e4f96728318030b3f5              468 main/binary-amd64/Packages.gz
+ 6cb04ab46f0f325f9c6275eff76f55de261d2852602b50ec090c46b8162ea097b714c2b97ec755bb687ec6de37054f315c458662660af2efbe941bdd986024e5              217 Release
+ 32b05dc783aa1f4da3c654ed9c647f4397b295f3f1b04ac7bd65ada6d5807f9191b94709c410de5c06faebcf46ccf50bc47cef04ab5154737174b012161431ab              713 main/binary-amd64/Packages
+ 4c47364a2bcb9d7748c1f290b11c9fc72414e5919c6424df967f54b06b2a3fa319056fae35ab963cce0eb0e168257b59cf20b03eb15442530404fcf27d5d606e              501 main/binary-amd64/Packages.gz
  accef341c032625a81f0ebb4ada048d8a8a71024f5ff3ca132575b3b75cae42fbf11e6a180988fa834e930b563c286378dfbadee3954aefce6157f8ccf6e533e              162 main/binary-amd64/Release
