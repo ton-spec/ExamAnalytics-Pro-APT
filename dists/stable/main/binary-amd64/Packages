@@ -1,12 +1,12 @@
 Package: examanalyticspro
-Version: 1.0.0
+Version: 1.0.1
 Architecture: amd64
 Maintainer: Tonny Mulati Digital Solutions <examanalyticsadmin@gmail.com>
 Priority: optional
 Section: education
-Filename: https://github.com/ton-spec/ExamAnalytics-Pro-APT/releases/download/v1.0.0/examanalyticspro_1.0.0_amd64.deb
-Size: 107331514
-SHA256: f8a44dc75513bfc39cf1c03760c977a5eb33558768824f197e3e788c44ce25c9
+Filename: pool/main/e/examanalyticspro/examanalyticspro_1.0.1_amd64.deb
+Size: 107340998
+SHA256: a123f13b358b514cecf7d3a2455d174f0e0c9061eb585983cd7cc55d9d016e42
 SHA1: 5a0674359741400d5f14eef982873d102d030c6c
 MD5sum: e13390a9d07e20ad1336ef1c3aa09077
 Description: ExamAnalytics Pro - CBC Exam Analysis & Reporting
