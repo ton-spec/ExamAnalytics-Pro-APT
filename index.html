@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ExamAnalytics Pro</title>
-
 <style>
-
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 body{
     margin:0;
     background:#f3f5f7;
@@ -15,20 +14,122 @@ body{
     color:#222;
 }
 
-header{
-    background:#0f4c81;
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(15,76,129,0.96);
+    backdrop-filter:blur(6px);
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+    transition:padding .25s ease;
+}
+nav.shrink{
+    padding:8px 20px;
+}
+.nav-brand{
     color:white;
-    text-align:center;
-    padding:60px 20px;
+    font-weight:bold;
+    font-size:19px;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.nav-brand img{
+    width:26px;
+    height:26px;
+}
+.nav-links{
+    display:flex;
+    gap:22px;
+}
+.nav-links a{
+    color:#dce8f5;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:600;
+    padding:4px 2px;
+    position:relative;
+}
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0%;
+    height:2px;
+    background:#66c0ff;
+    transition:width .25s ease;
+}
+.nav-links a:hover::after{
+    width:100%;
+}
+.nav-links a:hover{
+    color:#ffffff;
 }
 
+header{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#0f4c81,#123b63);
+    color:white;
+    text-align:center;
+    padding:70px 20px;
+}
+header::before{
+    content:"";
+    position:absolute;
+    top:-60px;
+    right:-60px;
+    width:260px;
+    height:260px;
+    background:url('app_icon.ico') center/contain no-repeat;
+    opacity:0.08;
+    filter:blur(1px);
+    transform:rotate(-12deg);
+    pointer-events:none;
+    animation:floaty 9s ease-in-out infinite;
+}
+header::after{
+    content:"";
+    position:absolute;
+    bottom:-80px;
+    left:-80px;
+    width:280px;
+    height:280px;
+    background:url('profile_pic.jpg') center/cover no-repeat;
+    border-radius:50%;
+    opacity:0.07;
+    filter:blur(2px) grayscale(40%);
+    pointer-events:none;
+    animation:floaty 11s ease-in-out infinite reverse;
+}
+@keyframes floaty{
+    0%,100%{transform:translate(0,0) rotate(-12deg);}
+    50%{transform:translate(10px,-14px) rotate(-6deg);}
+}
 header h1{
     margin:0;
     font-size:42px;
+    position:relative;
+    opacity:0;
+    animation:fadeUp .8s ease forwards;
 }
-
 header p{
     font-size:20px;
+    position:relative;
+    opacity:0;
+    animation:fadeUp .8s ease forwards;
+}
+header p:nth-of-type(1){animation-delay:.15s;}
+header p:nth-of-type(2){animation-delay:.3s;}
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(16px);}
+    to{opacity:1;transform:translateY(0);}
 }
 
 .container{
@@ -36,25 +137,33 @@ header p{
     margin:auto;
     padding:30px;
 }
-
 .card{
     background:white;
     border-radius:12px;
     padding:30px;
     margin-bottom:30px;
     box-shadow:0 3px 12px rgba(0,0,0,.12);
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity .6s ease, transform .6s ease;
 }
-
+.card.visible{
+    opacity:1;
+    transform:translateY(0);
+}
 h2{
     color:#0f4c81;
 }
-
 .preview{
     width:100%;
     border-radius:10px;
     box-shadow:0 5px 20px rgba(0,0,0,.25);
+    transition:transform .3s ease, box-shadow .3s ease;
 }
-
+.preview:hover{
+    transform:scale(1.015);
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
 code{
     display:block;
     background:#1f1f1f;
@@ -63,184 +172,311 @@ code{
     border-radius:8px;
     overflow:auto;
     font-size:16px;
+    position:relative;
 }
+.copy-btn{
+    position:absolute;
+    top:8px;
+    right:8px;
+    background:#00ff66;
+    color:#111;
+    border:none;
+    border-radius:5px;
+    padding:5px 10px;
+    font-size:12px;
+    font-weight:bold;
+    cursor:pointer;
+    opacity:.85;
+}
+.copy-btn:hover{opacity:1;}
+.code-wrap{position:relative;}
 
+.install-steps{
+    counter-reset:step;
+    padding:0;
+    list-style:none;
+}
+.install-steps li{
+    counter-increment:step;
+    margin:14px 0;
+    padding-left:42px;
+    position:relative;
+    font-size:16px;
+}
+.install-steps li::before{
+    content:counter(step);
+    position:absolute;
+    left:0;
+    top:-2px;
+    width:28px;
+    height:28px;
+    background:#0f4c81;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size:14px;
+}
 .button{
-
-display:inline-block;
-
-padding:12px 24px;
-
-margin:8px;
-
-background:#0f4c81;
-
-color:white;
-
-text-decoration:none;
-
-border-radius:8px;
-
-font-weight:bold;
-
+    display:inline-block;
+    padding:12px 24px;
+    margin:8px;
+    background:#0f4c81;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    box-shadow:0 3px 0 #0a365a, 0 4px 10px rgba(0,0,0,.2);
+    transition:transform .18s ease, box-shadow .18s ease;
 }
-
-.button:hover{
-
-background:#0a365a;
-
+.button:hover,
+.button:focus,
+.button:active{
+    animation:buttonDance .5s ease;
+    transform:translateY(-4px) scale(1.06);
+    box-shadow:0 7px 0 #0a365a, 0 10px 18px rgba(0,0,0,.28);
+    background:#12578f;
 }
-
+@keyframes buttonDance{
+    0%{transform:translateY(0) scale(1) rotate(0deg);}
+    25%{transform:translateY(-6px) scale(1.05) rotate(-2deg);}
+    50%{transform:translateY(-2px) scale(1.07) rotate(2deg);}
+    75%{transform:translateY(-5px) scale(1.05) rotate(-1deg);}
+    100%{transform:translateY(-4px) scale(1.06) rotate(0deg);}
+}
 .features{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:15px;
-
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
 }
-
 .feature{
-
-background:#eef4fa;
-
-padding:18px;
-
-border-radius:10px;
-
-font-size:17px;
-
+    background:#eef4fa;
+    padding:18px;
+    border-radius:10px;
+    font-size:17px;
+    transition:transform .2s ease, background .2s ease;
 }
-
+.feature:hover{
+    transform:translateY(-3px);
+    background:#e2edf8;
+}
+.bio-wrap{
+    display:flex;
+    gap:24px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.bio-photo{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    box-shadow:0 4px 14px rgba(0,0,0,.2);
+    border:3px solid #0f4c81;
+    flex-shrink:0;
+    transition:transform .3s ease;
+}
+.bio-photo:hover{
+    transform:scale(1.06) rotate(-2deg);
+}
+.bio-text{
+    flex:1;
+    min-width:240px;
+    line-height:1.5;
+}
 footer{
-
-text-align:center;
-
-padding:30px;
-
-color:#666;
-
+    text-align:center;
+    padding:34px 20px;
+    color:#666;
+    background:#eef2f6;
+}
+footer p{margin:4px 0;}
+footer .footer-name{
+    color:#0f4c81;
+    font-weight:bold;
+    font-size:17px;
 }
 
+#backToTop{
+    position:fixed;
+    bottom:26px;
+    right:26px;
+    background:#0f4c81;
+    color:white;
+    border:none;
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    font-size:20px;
+    cursor:pointer;
+    box-shadow:0 4px 14px rgba(0,0,0,.3);
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(20px);
+    transition:opacity .3s ease, transform .3s ease;
+    z-index:99;
+}
+#backToTop.show{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
+}
+#backToTop:hover{
+    background:#12578f;
+    transform:translateY(-4px) scale(1.08);
+}
+
+@media (max-width:640px){
+    .nav-links{display:none;}
+    header h1{font-size:32px;}
+    header p{font-size:16px;}
+}
 </style>
-
 </head>
-
 <body>
 
-<header>
+<nav id="mainNav">
+<a class="nav-brand" href="#top"><img src="app_icon.ico" alt="icon">ExamAnalytics Pro</a>
+<div class="nav-links">
+<a href="#preview">Preview</a>
+<a href="#install">Install</a>
+<a href="#features">Features</a>
+<a href="#about">About</a>
+<a href="#repo">Repository</a>
+</div>
+</nav>
 
+<header id="top">
 <h1>ExamAnalytics Pro</h1>
-
-<p>
-
-Professional CBC Examination Analysis & Reporting Software
-
-</p>
-
-<p>
-
-Secure • Offline • Automatic Updates
-
-</p>
-
+<p>Professional CBC Examination Analysis &amp; Reporting Software</p>
+<p>Secure • Offline • Hardware-Locked Licensing</p>
 </header>
 
 <div class="container">
 
-<div class="card">
-
+<div class="card" id="preview">
 <h2>Application Preview</h2>
-
-<p>
-
-Modern desktop interface built for schools.
-
-</p>
-
+<p>Modern desktop interface built for schools.</p>
 <img src="proshot.png" class="preview" alt="ExamAnalytics Pro Screenshot">
-
 </div>
 
-<div class="card">
-
-<h2>Quick Installation</h2>
-
-<p>
-
-Install on Ubuntu, Linux Mint or Debian with one command:
-
-</p>
-
-<code>
-curl -fsSL https://ton-spec.github.io/ExamAnalytics-Pro-APT/install.sh | bash
-</code>
-
+<div class="card" id="install">
+<h2>Installation</h2>
+<p>Install on Ubuntu, Linux Mint or Debian:</p>
+<ol class="install-steps">
+<li>Download the package: <a class="button" href="https://github.com/ton-spec/ExamAnalytics-Pro-APT/releases/download/1.0.1/examanalyticspro_1.0.1_amd64.deb">Download .deb (v1.0.1)</a></li>
+<li>Double-click the downloaded file to install it with your system's package installer.</li>
+<li>Or install from a terminal:
+<div class="code-wrap">
+<code id="installCmd">sudo dpkg -i examanalyticspro_1.0.1_amd64.deb</code>
+<button class="copy-btn" onclick="copyCmd()">Copy</button>
+</div>
+</li>
+</ol>
 </div>
 
-<div class="card">
-
+<div class="card" id="features">
 <h2>Features</h2>
-
 <div class="features">
-
 <div class="feature">✔ Offline desktop application</div>
-
 <div class="feature">✔ CBC examination analysis</div>
-
 <div class="feature">✔ Individual PDF report cards</div>
-
-<div class="feature">✔ Performance charts & analytics</div>
-
-<div class="feature">✔ Subject & class summaries</div>
-
+<div class="feature">✔ Performance charts &amp; analytics</div>
+<div class="feature">✔ Subject &amp; class summaries</div>
 <div class="feature">✔ Fast report generation</div>
-
-<div class="feature">✔ Automatic updates via APT</div>
-
+<div class="feature">✔ Hardware-locked licensing</div>
 <div class="feature">✔ Secure GPG-signed repository</div>
-
+</div>
 </div>
 
-</div>
-
-<div class="card">
-
-<h2>Repository</h2>
-
-<a class="button" href="install.sh">Installer Script</a>
-
-<a class="button" href="key.gpg">GPG Key</a>
-
-<a class="button" href="dists/stable/InRelease">APT Repository</a>
-
-<a class="button" href="https://github.com/ton-spec/ExamAnalytics-Pro-APT/releases">Releases</a>
-
-</div>
-
-<div class="card">
-
-<h2>Current Version</h2>
-
-<h3>Version 1.0.0</h3>
-
+<div class="card" id="about">
+<h2>About the Developer</h2>
+<div class="bio-wrap">
+<img src="profile_pic.jpg" class="bio-photo" alt="Tonny Wanjala Mulati">
+<div class="bio-text">
 <p>
-
-Maintained by <strong>Tonny Mulati Digital Solutions</strong>
-
+<!-- Replace this paragraph with your own biography text -->
+Tonny Wanjala Mulati is a software engineer and Junior Secondary School
+teacher based in Bungoma County, Kenya. He builds practical, offline-first
+tools for Kenyan CBC schools, combining classroom experience with
+hands-on software development to make exam analysis and reporting
+faster and more reliable for teachers.
 </p>
+</div>
+</div>
+</div>
 
+<div class="card" id="repo">
+<h2>Repository</h2>
+<a class="button" href="install.sh">Installer Script</a>
+<a class="button" href="key.gpg">GPG Key</a>
+<a class="button" href="dists/stable/InRelease">APT Repository</a>
+<a class="button" href="https://github.com/ton-spec/ExamAnalytics-Pro-APT/releases">Releases</a>
+</div>
+
+<div class="card">
+<h2>Current Version</h2>
+<h3>Version 1.0.1</h3>
+<p>Maintained by <strong>Tonny Mulati Digital Solutions</strong></p>
 </div>
 
 </div>
 
 <footer>
-
-© 2026 Tonny Mulati Digital Solutions
-
+<p class="footer-name">Tonny Wanjala Mulati</p>
+<p>Software Engineer &middot; Junior Secondary School Teacher</p>
+<p>Email: tonnymulati79@gmail.com</p>
+<p>Bungoma County, Kenya</p>
+<p>&copy; 2026 Tonny Mulati Digital Solutions</p>
 </footer>
 
-</body>
+<button id="backToTop" title="Back to top">&uarr;</button>
 
+<script>
+// Scroll-reveal for cards
+const cards = document.querySelectorAll('.card');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.15 });
+cards.forEach(card => revealObserver.observe(card));
+
+// Shrink nav on scroll
+const nav = document.getElementById('mainNav');
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+        nav.classList.add('shrink');
+    } else {
+        nav.classList.remove('shrink');
+    }
+    if (window.scrollY > 400) {
+        backToTop.classList.add('show');
+    } else {
+        backToTop.classList.remove('show');
+    }
+});
+
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Copy install command
+function copyCmd() {
+    const text = document.getElementById('installCmd').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        const original = btn.innerText;
+        btn.innerText = 'Copied!';
+        setTimeout(() => { btn.innerText = original; }, 1500);
+    });
+}
+</script>
+
+</body>
 </html>
