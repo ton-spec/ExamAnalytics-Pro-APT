@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ton-spec.github.io/ExamAnalytics-Pro-APT/sitemap.xml
