@@ -488,41 +488,68 @@ more reliable for teachers.
 
 <!-- Contact Form Section -->
 <div class="card" id="contact">
-<h2>Get in Touch</h2>
-<p style="color: var(--footer-text); margin-bottom: 25px;">Have questions, feedback, or need support? We'd love to hear from you.</p>
+  <h2>Get in Touch</h2>
+  <p style="color: var(--footer-text); margin-bottom: 25px;">Have questions, feedback, or need support? We'd love to hear from you.</p>
 
-<form action="https://formspree.io/f/xeeyrevo" method="POST">
-<div style="margin-bottom: 15px;">
-<label for="name" style="display: block; font-weight: bold; margin-bottom: 5px; color: var(--heading);">Full Name</label>
-<input type="text" id="name" name="name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box; background: var(--bg); color: var(--text);">
-</div>
+  <form id="contactForm" action="https://formspree.io/f/xeeyrevo" method="POST" novalidate>
+    <div style="margin-bottom: 15px;">
+      <label for="name" style="display: block; font-weight: bold; margin-bottom: 5px; color: var(--heading);">Full Name <span style="color: red;">*</span></label>
+      <input type="text" id="name" name="name" required minlength="2" maxlength="100" placeholder="e.g., John Mwangi" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box; background: var(--bg); color: var(--text);">
+      <div id="nameError" style="color: #e74c3c; font-size: 0.85rem; margin-top: 4px; display: none;">Please enter your full name (minimum 2 characters).</div>
+    </div>
 
-<div style="margin-bottom: 15px;">
-<label for="email" style="display: block; font-weight: bold; margin-bottom: 5px; color: var(--heading);">Email Address</label>
-<input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box; background: var(--bg); color: var(--text);">
-</div>
+    <div style="margin-bottom: 15px;">
+      <label for="school" style="display: block; font-weight: bold; margin-bottom: 5px; color: var(--heading);">School Name <span style="color: red;">*</span></label>
+      <input type="text" id="school" name="school" required minlength="2" maxlength="150" placeholder="e.g., Moi High School, Bungoma" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box; background: var(--bg); color: var(--text);">
+      <div id="schoolError" style="color: #e74c3c; font-size: 0.85rem; margin-top: 4px; display: none;">Please enter your school name.</div>
+    </div>
 
-<div style="margin-bottom: 15px;">
-<label for="subject" style="display: block; font-weight: bold; margin-bottom: 5px; color: var(--heading);">Subject</label>
-<input type="text" id="subject" name="subject" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box; background: var(--bg); color: var(--text);">
-</div>
+    <div style="margin-bottom: 15px;">
+      <label for="schoolType" style="display: block; font-weight: bold; margin-bottom: 5px; color: var(--heading);">School Type</label>
+      <select id="schoolType" name="schoolType" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box; background: var(--bg); color: var(--text);">
+        <option value="">Select school type...</option>
+        <option value="Primary">Primary School</option>
+        <option value="Junior Secondary">Junior Secondary School</option>
+        <option value="Senior Secondary">Senior Secondary School</option>
+        <option value="Special">Special Needs School</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
 
-<div style="margin-bottom: 20px;">
-<label for="message" style="display: block; font-weight: bold; margin-bottom: 5px; color: var(--heading);">Message</label>
-<textarea id="message" name="message" rows="5" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; resize: vertical; box-sizing: border-box; background: var(--bg); color: var(--text);"></textarea>
-</div>
+    <div style="margin-bottom: 15px;">
+      <label for="email" style="display: block; font-weight: bold; margin-bottom: 5px; color: var(--heading);">Email Address <span style="color: red;">*</span></label>
+      <input type="email" id="email" name="email" required maxlength="100" placeholder="e.g., john.mwangi@school.ac.ke" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box; background: var(--bg); color: var(--text);">
+      <div id="emailError" style="color: #e74c3c; font-size: 0.85rem; margin-top: 4px; display: none;">Please enter a valid email address (e.g., name@domain.com).</div>
+    </div>
 
-<input type="text" name="_gotcha" style="display:none;">
-<input type="hidden" name="_subject" value="New contact form submission from ExamAnalytics Pro">
+    <div style="margin-bottom: 15px;">
+      <label for="subject" style="display: block; font-weight: bold; margin-bottom: 5px; color: var(--heading);">Subject <span style="color: red;">*</span></label>
+      <input type="text" id="subject" name="subject" required minlength="3" maxlength="200" placeholder="e.g., Installation Help" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; box-sizing: border-box; background: var(--bg); color: var(--text);">
+      <div id="subjectError" style="color: #e74c3c; font-size: 0.85rem; margin-top: 4px; display: none;">Please enter a subject (minimum 3 characters).</div>
+    </div>
 
-<button type="submit" style="background-color: var(--btn-bg); color: white; padding: 14px 40px; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer; font-weight: bold; transition: background-color 0.3s, transform 0.2s;">
-Send Message
-</button>
-</form>
+    <div style="margin-bottom: 20px;">
+      <label for="message" style="display: block; font-weight: bold; margin-bottom: 5px; color: var(--heading);">Message <span style="color: red;">*</span></label>
+      <textarea id="message" name="message" rows="5" required minlength="10" maxlength="1000" placeholder="Enter your question, feedback, or request..." style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; resize: vertical; box-sizing: border-box; background: var(--bg); color: var(--text);"></textarea>
+      <div id="messageError" style="color: #e74c3c; font-size: 0.85rem; margin-top: 4px; display: none;">Please enter a message (minimum 10 characters, maximum 1000).</div>
+      <div style="text-align: right; font-size: 0.8rem; color: var(--footer-text);"><span id="charCount">0</span> / 1000 characters</div>
+    </div>
 
-<p style="margin-top: 25px; font-size: 0.9rem; color: var(--footer-text); text-align: center;">
-Or reach out directly: <a href="mailto:examanalyticsadmin@gmail.com" style="color: var(--heading); text-decoration: none;">examanalyticsadmin@gmail.com</a>
-</p>
+    <input type="text" name="_gotcha" style="display:none;">
+    <input type="hidden" name="_subject" value="New contact form submission from ExamAnalytics Pro">
+
+    <div id="formError" style="color: #e74c3c; font-size: 0.9rem; margin-bottom: 15px; display: none;">Please fix all errors above before submitting.</div>
+
+    <button type="submit" id="submitBtn" style="background-color: var(--btn-bg); color: white; padding: 14px 40px; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer; font-weight: bold; transition: background-color 0.3s, transform 0.2s;">
+      Send Message
+    </button>
+    <div id="loadingMessage" style="display: none; color: var(--heading); margin-top: 10px;">Sending your message...</div>
+    <div id="successMessage" style="display: none; color: #27ae60; margin-top: 10px; font-weight: bold;">✅ Your message was sent successfully! We'll get back to you soon.</div>
+  </form>
+
+  <p style="margin-top: 25px; font-size: 0.9rem; color: var(--footer-text); text-align: center;">
+    Or reach out directly: <a href="mailto:examanalyticsadmin@gmail.com" style="color: var(--heading); text-decoration: none;">examanalyticsadmin@gmail.com</a>
+  </p>
 </div>
 
 </div>
@@ -539,6 +566,7 @@ Or reach out directly: <a href="mailto:examanalyticsadmin@gmail.com" style="colo
 <button id="backToTop" title="Back to top">&uarr;</button>
 
 <script>
+// ---- Existing Scripts ----
 const cards = document.querySelectorAll('.card');
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
@@ -628,6 +656,120 @@ searchBox.addEventListener('input', () => {
         }
     });
     if (firstMatch) firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
+// ---- Contact Form Validation & AJAX Submission ----
+const contactForm = document.getElementById('contactForm');
+const nameInput = document.getElementById('name');
+const schoolInput = document.getElementById('school');
+const emailInput = document.getElementById('email');
+const subjectInput = document.getElementById('subject');
+const messageInput = document.getElementById('message');
+const submitBtn = document.getElementById('submitBtn');
+const formError = document.getElementById('formError');
+const loadingMessage = document.getElementById('loadingMessage');
+const successMessage = document.getElementById('successMessage');
+const charCount = document.getElementById('charCount');
+
+// Character counter
+messageInput.addEventListener('input', function() {
+    const count = this.value.length;
+    charCount.textContent = count;
+    if (count > 1000) {
+        this.value = this.value.substring(0, 1000);
+        charCount.textContent = 1000;
+    }
+});
+
+// Validation helper
+function validateField(input, errorId, condition) {
+    const errorElement = document.getElementById(errorId);
+    if (!condition) {
+        errorElement.style.display = 'block';
+        input.style.borderColor = '#e74c3c';
+        return false;
+    } else {
+        errorElement.style.display = 'none';
+        input.style.borderColor = '#27ae60';
+        return true;
+    }
+}
+
+// Real-time validation events
+nameInput.addEventListener('input', function() {
+    validateField(this, 'nameError', this.value.trim().length >= 2);
+});
+schoolInput.addEventListener('input', function() {
+    validateField(this, 'schoolError', this.value.trim().length >= 2);
+});
+emailInput.addEventListener('input', function() {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    validateField(this, 'emailError', emailRegex.test(this.value.trim()));
+});
+subjectInput.addEventListener('input', function() {
+    validateField(this, 'subjectError', this.value.trim().length >= 3);
+});
+messageInput.addEventListener('input', function() {
+    const len = this.value.trim().length;
+    validateField(this, 'messageError', len >= 10 && len <= 1000);
+});
+
+// Form submit handler
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Validate all
+    const isNameValid = validateField(nameInput, 'nameError', nameInput.value.trim().length >= 2);
+    const isSchoolValid = validateField(schoolInput, 'schoolError', schoolInput.value.trim().length >= 2);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isEmailValid = validateField(emailInput, 'emailError', emailRegex.test(emailInput.value.trim()));
+    const isSubjectValid = validateField(subjectInput, 'subjectError', subjectInput.value.trim().length >= 3);
+    const msgLen = messageInput.value.trim().length;
+    const isMessageValid = validateField(messageInput, 'messageError', msgLen >= 10 && msgLen <= 1000);
+
+    if (!isNameValid || !isSchoolValid || !isEmailValid || !isSubjectValid || !isMessageValid) {
+        formError.style.display = 'block';
+        // Scroll to contact section
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+    }
+
+    formError.style.display = 'none';
+    loadingMessage.style.display = 'block';
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.6';
+
+    const formData = new FormData(this);
+    fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+        if (response.ok) {
+            loadingMessage.style.display = 'none';
+            successMessage.style.display = 'block';
+            contactForm.reset();
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            charCount.textContent = '0';
+            // Reset border colors
+            document.querySelectorAll('#contact input, #contact textarea, #contact select').forEach(el => {
+                el.style.borderColor = '#ddd';
+            });
+            // Hide error messages
+            document.querySelectorAll('#contact .card div[id$="Error"]').forEach(el => el.style.display = 'none');
+        } else {
+            throw new Error('Server error');
+        }
+    })
+    .catch(error => {
+        loadingMessage.style.display = 'none';
+        formError.textContent = '❌ Something went wrong. Please try again or email us directly.';
+        formError.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+    });
 });
 </script>
 
