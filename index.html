@@ -1,3 +1,4 @@
+cat > index.html << 'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -389,6 +390,7 @@ footer .footer-name{color:var(--heading);font-weight:bold;font-size:17px;}
 <a href="#features">Features</a>
 <a href="#about">About</a>
 <a href="#repo">Repository</a>
+<a href="#video">Tutorials</a>
 <a href="index.html">Home</a>
 <a href="terms.html">Terms</a>
 </div>
@@ -484,6 +486,28 @@ more reliable for teachers.
 <h2>Current Version</h2>
 <h3>Version 1.0.1</h3>
 <p>Maintained by <strong>Tonny Mulati Digital Solutions</strong></p>
+</div>
+
+<!-- Video Tutorial Section -->
+<div class="card" id="video">
+  <h2>📹 Video Tutorial</h2>
+  <p style="color: var(--footer-text); margin-bottom: 20px;">
+    Watch an overview of ExamAnalytics Pro and how to activate your license.
+  </p>
+
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px;">
+    <iframe 
+      src="https://www.youtube.com/embed/AZb6D-DhAos" 
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <p style="margin-top: 15px; font-size: 0.9rem; color: var(--footer-text);">
+    📌 <strong>Pro Tip:</strong> Subscribe to our channel for more tutorials and updates.
+  </p>
 </div>
 
 <!-- Contact Form Section -->
@@ -775,3 +799,4 @@ contactForm.addEventListener('submit', function(e) {
 
 </body>
 </html>
+EOF
